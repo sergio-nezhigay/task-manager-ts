@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Button, Col, Row, Form, Modal } from "react-bootstrap";
-import { Formik, Field, FormikHelpers } from "formik";
+import { Formik, FormikHelpers } from "formik";
 import * as yup from "yup";
 import { v4 as uuidv4 } from "uuid";
 import { addTask, editTask } from "../store/tasksSlice";
