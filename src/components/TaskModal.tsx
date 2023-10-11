@@ -78,12 +78,13 @@ export const TaskModal: React.FC<TaskModalProps> = ({ show, onHide, task }) => {
               <Row className="mb-3">
                 <Form.Group as={Col} md="4" controlId="validationFormik03">
                   <Form.Label>Name</Form.Label>
-                  <Field
+                  <Form.Control
                     type="text"
                     name="name"
                     value={values.name}
                     onChange={handleChange}
                     isInvalid={!!errors.name}
+                    className="mb-3"
                   />
                   <Form.Control.Feedback type="invalid">
                     {errors.name}
@@ -91,7 +92,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({ show, onHide, task }) => {
                 </Form.Group>
                 <Form.Group as={Col} md="8" controlId="validationFormik04">
                   <Form.Label>Description</Form.Label>
-                  <Field
+                  <Form.Control
                     type="text"
                     name="description"
                     value={values.description}
