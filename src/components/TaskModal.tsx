@@ -3,9 +3,9 @@ import { Button, Col, Row, Form, Modal } from "react-bootstrap";
 import { Formik, FormikHelpers } from "formik";
 import * as yup from "yup";
 import { v4 as uuidv4 } from "uuid";
-import { addTask, editTask } from "../store/tasksSlice";
 
-import { ITask } from "store/commonTypes";
+import { addTask, editTask } from "store/tasksSlice";
+import { ITask } from "interfaces/ITask";
 
 interface TaskModalProps {
   show: boolean;

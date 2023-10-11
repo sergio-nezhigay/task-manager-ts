@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Form, Button, Card } from "react-bootstrap";
 
-import { deleteTask, toggleTaskStatus } from "../store/tasksSlice";
-import { TaskModal } from "./TaskModal";
-import { ITask } from "store/commonTypes";
+import { deleteTask, toggleTaskStatus } from "store/tasksSlice";
+import { TaskModal } from "components/TaskModal";
+import { ITask } from "interfaces/ITask";
 
 interface TaskItemProps {
   task: ITask;

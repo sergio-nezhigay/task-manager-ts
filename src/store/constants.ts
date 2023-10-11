@@ -1,4 +1,4 @@
-import { ITask } from "./commonTypes";
+import { ITask } from "interfaces/ITask";
 
 export type TaskStatus = "all" | "active" | "completed";
 

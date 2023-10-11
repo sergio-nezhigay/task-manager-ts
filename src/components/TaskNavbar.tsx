@@ -1,9 +1,9 @@
 import React from "react";
 import { Navbar, Container, Button, Nav } from "react-bootstrap";
 
-import { FilterButtons } from "./FilterButtons";
-import { ITask } from "store/commonTypes";
-import img from "../data/images/icons.svg";
+import { FilterButtons } from "components/FilterButtons";
+import { ITask } from "interfaces/ITask";
+import img from "data/images/icons.svg";
 
 interface TaskNavbarProps {
   openModal: (task: ITask | null) => void;

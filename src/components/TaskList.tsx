@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { TaskItem } from "./TaskItem";
-import { selectVisibleTasks } from "../store/selectors";
-import { ITask } from "store/commonTypes";
+import { TaskItem } from "components/TaskItem";
+import { selectVisibleTasks } from "store/selectors";
+import { ITask } from "interfaces/ITask";
 
 export const TaskList: React.FC = () => {
   const tasks: ITask[] = useSelector(selectVisibleTasks);

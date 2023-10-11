@@ -5,7 +5,7 @@ import { TaskList } from "components/TaskList";
 import { TaskModal } from "components/TaskModal";
 import { TaskNavbar } from "components/TaskNavbar";
 
-import { ITask } from "store/commonTypes";
+import { ITask } from "interfaces/ITask";
 
 const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
