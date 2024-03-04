@@ -19,3 +19,17 @@ export const selectVisibleTasks = createSelector(
     }
   }
 );
+
+export const selectCompletedTasksQty = createSelector(
+  [selectTasks],
+  (tasks) => {
+    return tasks.filter((task) => task.completed).length;
+  }
+);
+
+export const selectUncompletedTasksQty = createSelector(
+  [selectTasks],
+  (tasks) => {
+    return tasks.filter((task) => !task.completed).length;
+  }
+);

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Form, Button, Card } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
 import { deleteTask, toggleTaskStatus } from "store/tasksSlice";
 import { TaskModal } from "components/TaskModal";
-import { ITask } from "interfaces/ITask";
+import { ITask } from "types";
 
 interface TaskItemProps {
   task: ITask;
@@ -27,34 +27,35 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
   };
 
   return (
-    <Card className="task-item mb-3">
-      <Card.Body>
-        <Card.Title>{task.name}</Card.Title>
-        <Card.Text>{task.description}</Card.Text>
-      </Card.Body>
-      <Card.Footer>
-        <div className="d-flex justify-content-between align-items-center">
+    <>
+      <div className="d-flex justify-content-between align-items-center w-100">
+        <div
+          role="button"
+          onClick={handleToggleStatusClick}
+          className="d-flex align-items-center "
+        >
           <Form.Check
             type="checkbox"
-            label={task.completed ? "Completed" : "Active"}
             checked={task.completed}
-            onChange={handleToggleStatusClick}
+            className="m-2"
           />
-          <div className="text-end">
-            <Button
-              variant="primary"
-              onClick={handleEditClick}
-              size="sm"
-              className="me-2"
-            >
-              Edit
-            </Button>
-            <Button variant="danger" onClick={handleDeleteClick} size="sm">
-              Delete
-            </Button>
-          </div>
+          <span>{task.recordText}</span>
         </div>
-      </Card.Footer>
+        <div className="text-end">
+          <Button
+            variant="primary"
+            onClick={handleEditClick}
+            size="sm"
+            className="me-2"
+          >
+            Edit
+          </Button>
+          <Button variant="danger" onClick={handleDeleteClick} size="sm">
+            Delete
+          </Button>
+        </div>
+      </div>
+      <hr className="w-100" />
       {isModalOpen && (
         <TaskModal
           show={isModalOpen}
@@ -62,6 +63,6 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
           task={task}
         />
       )}
-    </Card>
+    </>
   );
 };

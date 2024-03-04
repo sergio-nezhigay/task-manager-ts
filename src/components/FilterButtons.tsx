@@ -1,13 +1,19 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { ButtonGroup, Button } from "react-bootstrap";
+import { ButtonGroup, Button, Badge } from "react-bootstrap";
 
 import { statusFilters } from "store/constants";
-import { selectStatusFilter } from "store/selectors";
+import {
+  selectCompletedTasksQty,
+  selectUncompletedTasksQty,
+  selectStatusFilter,
+} from "store/selectors";
 import { setStatusFilter } from "store/filtersSlice";
 
 export const FilterButtons: React.FC = () => {
   const dispatch = useDispatch();
+  const completedTasksQty = useSelector(selectCompletedTasksQty);
+  const unCompletedTasksQty = useSelector(selectUncompletedTasksQty);
   const filter = useSelector(selectStatusFilter);
 
   const handleFilterChange = (selectedFilter: string) =>
@@ -25,13 +31,19 @@ export const FilterButtons: React.FC = () => {
         variant={filter === statusFilters.active ? "primary" : "light"}
         onClick={() => handleFilterChange(statusFilters.active)}
       >
-        Active
+        Active{" "}
+        <Badge pill bg="secondary">
+          {unCompletedTasksQty}
+        </Badge>
       </Button>
       <Button
         variant={filter === statusFilters.completed ? "primary" : "light"}
         onClick={() => handleFilterChange(statusFilters.completed)}
       >
-        Completed
+        Completed{" "}
+        <Badge pill bg="secondary">
+          {completedTasksQty}
+        </Badge>
       </Button>
     </ButtonGroup>
   );

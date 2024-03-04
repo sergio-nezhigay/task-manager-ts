@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { initialTasks } from "./constants";
-import { ITask } from "interfaces/ITask";
+import { ITask } from "types";
 
 interface TasksState {
   tasks: ITask[];
@@ -17,13 +17,13 @@ const tasksSlice = createSlice({
       state.tasks.push(action.payload);
     },
     editTask: (state, action: PayloadAction<ITask>) => {
-      const { id, name, description, completed } = action.payload;
+      const { id, recordText, completed } = action.payload;
       const taskIndex = state.tasks.findIndex((task) => task.id === id);
       if (taskIndex !== -1) {
         const updatedTask = {
           ...state.tasks[taskIndex],
-          name,
-          description,
+
+          recordText,
           completed,
         };
         state.tasks.splice(taskIndex, 1, updatedTask);

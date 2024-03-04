@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 import { TaskList } from "components/TaskList";
 import { TaskModal } from "components/TaskModal";
 import { TaskNavbar } from "components/TaskNavbar";
 
-import { ITask } from "interfaces/ITask";
+import { ITask } from "types";
+import { FilterButtons } from "components/FilterButtons";
 
 const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -27,9 +28,22 @@ const App: React.FC = () => {
         <TaskNavbar openModal={openModal} />
       </header>
       <main className="mt-5">
-        <Container>
+        <Container className="text-center">
+          <div className="d-flex align-items-center justify-content-between">
+            <Button
+              variant="primary"
+              className="my-2 my-lg-0"
+              onClick={() => openModal(null)}
+            >
+              Add Task
+            </Button>
+            <div className="mb-2 mb-lg-0">
+              <FilterButtons />
+            </div>
+          </div>
+
           <Row>
-            <Col md={8} className="mx-auto">
+            <Col className="mx-auto">
               <TaskList />
             </Col>
           </Row>
