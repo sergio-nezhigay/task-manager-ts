@@ -1,4 +1,4 @@
-import { ITask } from "interfaces/ITask";
+import { ITask } from "types";
 
 export type TaskStatus = "all" | "active" | "completed";
 
@@ -8,23 +8,22 @@ export const statusFilters: Record<TaskStatus, string> = Object.freeze({
   completed: "Completed",
 });
 
+export const TASK_MAX_LENGTH = 15;
+
 export const initialTasks: ITask[] = [
   {
     id: "1",
-    name: "Word Play",
-    description: "Create a new task with a title",
+    recordText: "Create a task",
     completed: false,
   },
   {
     id: "2",
-    name: "Timer Challenge",
-    description: "Set a timer for 30 seconds",
+    recordText: "Set a timer",
     completed: false,
   },
   {
     id: "3",
-    name: "Emoji Express",
-    description: "Add an emoji",
+    recordText: "Add an emoji",
     completed: true,
   },
 ];
