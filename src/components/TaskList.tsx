@@ -21,7 +21,7 @@ export const TaskList: React.FC = () => {
         </>
       ) : (
         <>
-          <h1>No tasks filtered</h1>
+          <h1>No tasks found</h1>
           <p>You can add tasks using "Add task" button</p>
         </>
       )}

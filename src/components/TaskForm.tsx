@@ -79,6 +79,7 @@ const TaskForm = ({ task, onHide }: TaskFormProps) => {
               <Form.Check
                 name="completed"
                 label="Completed"
+                id="checkbox"
                 onChange={handleChange}
               />
             </Form.Group>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Stack } from "react-bootstrap";
 
 import { deleteTask, toggleTaskStatus } from "store/tasksSlice";
 import { TaskModal } from "components/TaskModal";
@@ -25,23 +25,21 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
   const handleToggleStatusClick = () => {
     dispatch(toggleTaskStatus(task.id));
   };
+  const checkboxId = `check_${task.id}`;
 
   return (
     <>
-      <div className="d-flex justify-content-between align-items-center w-100">
-        <div
-          role="button"
-          onClick={handleToggleStatusClick}
-          className="d-flex align-items-center "
-        >
-          <Form.Check
-            type="checkbox"
-            checked={task.completed}
-            className="m-2"
-          />
-          <span>{task.recordText}</span>
-        </div>
-        <div className="text-end">
+      <Stack direction="horizontal" gap={3}>
+        <Form.Check
+          type="checkbox"
+          checked={task.completed}
+          onChange={handleToggleStatusClick}
+          label={task.recordText}
+          id={checkboxId}
+          className="cursor-pointer"
+        />
+
+        <div className="ms-auto">
           <Button
             variant="primary"
             onClick={handleEditClick}
@@ -54,8 +52,8 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
             Delete
           </Button>
         </div>
-      </div>
-      <hr className="w-100" />
+      </Stack>
+      <hr />
       {isModalOpen && (
         <TaskModal
           show={isModalOpen}

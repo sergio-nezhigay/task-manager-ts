@@ -12,6 +12,16 @@ code {
     monospace;
 }
 
+@media (min-width: 992px) {
+  .container {
+    max-width: 40%;
+  }
+}
 .d-flex {
   gap: 20px;
+}
+
+input[type="checkbox"],
+input[type="checkbox"] + label {
+  cursor: pointer;
 }

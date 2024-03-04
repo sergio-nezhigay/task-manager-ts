@@ -20,7 +20,7 @@ export const FilterButtons: React.FC = () => {
     dispatch(setStatusFilter(selectedFilter));
 
   return (
-    <ButtonGroup>
+    <ButtonGroup className="ms-auto">
       <Button
         variant={filter === statusFilters.all ? "primary" : "light"}
         onClick={() => handleFilterChange(statusFilters.all)}

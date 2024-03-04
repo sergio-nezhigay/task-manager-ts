@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button, Stack } from "react-bootstrap";
 
 import { TaskList } from "components/TaskList";
 import { TaskModal } from "components/TaskModal";
@@ -21,15 +21,15 @@ const App: React.FC = () => {
     setSelectedTask(null);
     setIsModalOpen(false);
   };
-
+  console.log("first");
   return (
     <>
       <header>
         <TaskNavbar openModal={openModal} />
       </header>
       <main className="mt-5">
-        <Container className="text-center">
-          <div className="d-flex align-items-center justify-content-between">
+        <div className="text-center container">
+          <Stack direction="horizontal" gap={3}>
             <Button
               variant="primary"
               className="my-2 my-lg-0"
@@ -37,16 +37,12 @@ const App: React.FC = () => {
             >
               Add Task
             </Button>
-            <div className="mb-2 mb-lg-0">
-              <FilterButtons />
-            </div>
-          </div>
 
-          <Row>
-            <Col className="mx-auto">
-              <TaskList />
-            </Col>
-          </Row>
+            <FilterButtons />
+          </Stack>
+
+          <TaskList />
+
           {isModalOpen && (
             <TaskModal
               show={isModalOpen}
@@ -54,7 +50,7 @@ const App: React.FC = () => {
               task={selectedTask}
             />
           )}
-        </Container>
+        </div>
       </main>
     </>
   );

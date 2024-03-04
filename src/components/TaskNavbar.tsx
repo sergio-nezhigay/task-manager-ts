@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Navbar, Container } from "react-bootstrap";
 
 import { ITask } from "types";
@@ -13,9 +14,11 @@ export const TaskNavbar: React.FC<TaskNavbarProps> = ({ openModal }) => {
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand className="d-flex align-items-center justify-content-center gap-3">
-          <img src={img} alt="Logo" width="30" height="30" />
-          <span>Task manager</span>
+          <Link to="/">
+            <img src={img} alt="Logo" width="30" height="30" />
+          </Link>
         </Navbar.Brand>
+
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       </Container>
     </Navbar>
