@@ -8,6 +8,7 @@ import { FilterButtons } from './FilterButtons';
 import { IToDo } from 'types';
 
 const abc = 5;
+abc = 55;
 
 export const ToDo: React.FC = () => {
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
