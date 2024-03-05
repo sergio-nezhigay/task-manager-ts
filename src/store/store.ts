@@ -1,44 +1,43 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-import { tasksReducer } from "./tasksSlice";
-import { filtersReducer } from "./filtersSlice";
-
-export type RootState = {
-  tasks: ReturnType<typeof tasksReducer>;
-  filters: ReturnType<typeof filtersReducer>;
-};
+import { tasksReducer } from './tasksSlice';
+import { filtersReducer } from './filtersSlice';
 
 const tasksPersistConfig = {
-  key: "tasks",
-  storage,
+	key: 'tasks',
+	storage,
 };
 
 const filterPersistConfig = {
-  key: "filters",
-  storage,
+	key: 'filters',
+	storage,
 };
 
-const persistedTasksReducer = persistReducer(tasksPersistConfig, tasksReducer);
+const persistedToDosReducer = persistReducer(tasksPersistConfig, tasksReducer);
 const persistedFilterReducer = persistReducer(
-  filterPersistConfig,
-  filtersReducer
+	filterPersistConfig,
+	filtersReducer
 );
 
 const rootReducer = combineReducers({
-  tasks: persistedTasksReducer,
-  filters: persistedFilterReducer,
+	tasks: persistedToDosReducer,
+	filters: persistedFilterReducer,
 });
 
 const store = configureStore({
-  reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
+	reducer: rootReducer,
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			serializableCheck: false,
+		}),
 });
 
 export const persistor = persistStore(store);
 
 export default store;
+
+export type RootState = ReturnType<typeof store.getState>;
+
+export type AppDispatch = typeof store.dispatch;
