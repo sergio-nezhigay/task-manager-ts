@@ -33,8 +33,13 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"lint": "eslint . --fix --max-warnings=0",
-		"format": "prettier . --write",
+		"lint": "next lint",
+		"check-types": "tsc --pretty --noEmit",
+		"check-format": "prettier --check .",
+		"check-lint": "eslint . --ext ts --ext tsx --ext js --report-unused-disable-directives --max-warnings 0",
+		"format": "prettier --write .",
+		"fix": "npm run format && npm run lint --fix",
+		"test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
 		"prepare": "husky install"
 	},
 	"eslintConfig": {
