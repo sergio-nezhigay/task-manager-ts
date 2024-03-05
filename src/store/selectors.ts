@@ -13,12 +13,15 @@ export const selectVisibleToDos = createSelector(
 	[selectToDos, selectStatusFilter],
 	(tasks, statusFilter) => {
 		switch (statusFilter) {
-			case statusFilters.active:
+			case statusFilters.active: {
 				return tasks.filter((task) => !task.completed);
-			case statusFilters.completed:
+			}
+			case statusFilters.completed: {
 				return tasks.filter((task) => task.completed);
-			default:
+			}
+			default: {
 				return tasks;
+			}
 		}
 	}
 );
