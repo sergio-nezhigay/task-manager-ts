@@ -1,50 +1,52 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { ButtonGroup, Button, Badge } from "react-bootstrap";
+import React from 'react';
 
-import { statusFilters } from "store/constants";
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { ButtonGroup, Button, Badge } from 'react-bootstrap';
+
+import { statusFilters } from 'data/constants';
 import {
-  selectCompletedTasksQty,
-  selectUncompletedTasksQty,
-  selectStatusFilter,
-} from "store/selectors";
-import { setStatusFilter } from "store/filtersSlice";
+	selectCompletedToDosQty,
+	selectStatusFilter,
+	selectUncompletedToDosQty,
+} from 'store/selectors';
+import { setStatusFilter } from 'store/filtersSlice';
 
 export const FilterButtons: React.FC = () => {
-  const dispatch = useDispatch();
-  const completedTasksQty = useSelector(selectCompletedTasksQty);
-  const unCompletedTasksQty = useSelector(selectUncompletedTasksQty);
-  const filter = useSelector(selectStatusFilter);
+	const dispatch = useAppDispatch();
+	const completedToDosQty = useAppSelector(selectCompletedToDosQty);
+	const unCompletedToDosQty = useAppSelector(selectUncompletedToDosQty);
+	const filter = useAppSelector(selectStatusFilter);
 
-  const handleFilterChange = (selectedFilter: string) =>
-    dispatch(setStatusFilter(selectedFilter));
+	const handleFilterChange = (selectedFilter: string): void => {
+		dispatch(setStatusFilter(selectedFilter));
+	};
 
-  return (
-    <ButtonGroup>
-      <Button
-        variant={filter === statusFilters.all ? "primary" : "light"}
-        onClick={() => handleFilterChange(statusFilters.all)}
-      >
-        All
-      </Button>
-      <Button
-        variant={filter === statusFilters.active ? "primary" : "light"}
-        onClick={() => handleFilterChange(statusFilters.active)}
-      >
-        Active{" "}
-        <Badge pill bg="secondary">
-          {unCompletedTasksQty}
-        </Badge>
-      </Button>
-      <Button
-        variant={filter === statusFilters.completed ? "primary" : "light"}
-        onClick={() => handleFilterChange(statusFilters.completed)}
-      >
-        Completed{" "}
-        <Badge pill bg="secondary">
-          {completedTasksQty}
-        </Badge>
-      </Button>
-    </ButtonGroup>
-  );
+	return (
+		<ButtonGroup className="ms-auto">
+			<Button
+				variant={filter === statusFilters.all ? 'primary' : 'light'}
+				onClick={(): void => handleFilterChange(statusFilters.all)}
+			>
+				All
+			</Button>
+			<Button
+				variant={filter === statusFilters.active ? 'primary' : 'light'}
+				onClick={(): void => handleFilterChange(statusFilters.active)}
+			>
+				Active{' '}
+				<Badge pill bg="secondary">
+					{unCompletedToDosQty}
+				</Badge>
+			</Button>
+			<Button
+				variant={filter === statusFilters.completed ? 'primary' : 'light'}
+				onClick={(): void => handleFilterChange(statusFilters.completed)}
+			>
+				Completed{' '}
+				<Badge pill bg="secondary">
+					{completedToDosQty}
+				</Badge>
+			</Button>
+		</ButtonGroup>
+	);
 };
