@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button, Stack } from 'react-bootstrap';
 
 import { deleteToDo, toggleToDoStatus } from 'store/tasksSlice';
-import { ToDoModal } from 'components/ToDoModal';
+import { ToDoModal } from 'components/to-do-modal';
 import { TaskItemProps } from 'types';
 import { useAppDispatch } from 'store/hooks';
 

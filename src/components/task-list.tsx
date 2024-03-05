@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TaskItem } from './TaskItem';
+import { TaskItem } from './task-item';
 
 import { selectVisibleToDos } from 'store/selectors';
 import { useAppSelector } from 'store/hooks';
@@ -11,7 +11,7 @@ export const TaskList: React.FC = () => {
 
 	return (
 		<>
-			{tasks.length ? (
+			{tasks.length > 0 ? (
 				<>
 					<h1>ToDos list</h1>
 					{tasks.map((task) => (

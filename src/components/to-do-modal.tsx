@@ -3,7 +3,7 @@ import React from 'react';
 import { Modal } from 'react-bootstrap';
 
 import { ToDoModalProps } from 'types';
-import { ToDoForm } from './ToDoForm';
+import { ToDoForm } from './to-do-form';
 
 export const ToDoModal: React.FC<ToDoModalProps> = ({ show, onHide, task }) => {
 	return (

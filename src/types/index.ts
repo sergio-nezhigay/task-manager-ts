@@ -18,7 +18,7 @@ export interface TaskItemProps {
 
 export interface ToDoFormProps {
 	onHide: () => void;
-	task: IToDo | null;
+	task: IToDo | undefined;
 }
 
 export interface ToDoModalProps extends ToDoFormProps {

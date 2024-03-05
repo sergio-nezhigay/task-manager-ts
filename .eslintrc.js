@@ -4,10 +4,8 @@ module.exports = {
 		es2021: true,
 	},
 	extends: [
-		'eslint:recommended',
-		'plugin:@typescript-eslint/recommended',
-		'plugin:react/recommended',
-		'@wemake-services/typescript/base',
+		'@wemake-services/typescript/recommended',
+		'@wemake-services/javascript',
 		'prettier',
 	],
 	overrides: [

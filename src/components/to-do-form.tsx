@@ -22,8 +22,8 @@ export const ToDoForm: React.FC<ToDoFormProps> = ({ task, onHide }) => {
 			),
 		completed: yup.bool(),
 	});
-	const handleSubmit = (
-		values: {
+	const handleFormSubmit = (
+		formValues: {
 			recordText: string;
 			completed: boolean;
 		},
@@ -36,7 +36,7 @@ export const ToDoForm: React.FC<ToDoFormProps> = ({ task, onHide }) => {
 	): void => {
 		const taskData = {
 			id: task ? task.id : uuidv4(),
-			...values,
+			...formValues,
 		};
 
 		if (task) {
@@ -56,23 +56,23 @@ export const ToDoForm: React.FC<ToDoFormProps> = ({ task, onHide }) => {
 	return (
 		<Formik
 			validationSchema={schema}
-			onSubmit={handleSubmit}
+			onSubmit={handleFormSubmit}
 			initialValues={initialValues}
 		>
-			{({ handleSubmit, handleChange, values, errors }): JSX.Element => (
-				<Form noValidate onSubmit={handleSubmit}>
+			{(formikProps): React.JSX.Element => (
+				<Form noValidate onSubmit={formikProps.handleSubmit}>
 					<Row className="mb-3">
 						<Form.Group as={Col} md="8" controlId="validationFormik04">
 							<Form.Label>Enter task details</Form.Label>
 							<Form.Control
 								type="text"
 								name="recordText"
-								value={values.recordText}
-								onChange={handleChange}
-								isInvalid={!!errors.recordText}
+								value={formikProps.values.recordText}
+								onChange={formikProps.handleChange}
+								isInvalid={Boolean(formikProps.errors.recordText)}
 							/>
 							<Form.Control.Feedback type="invalid">
-								{errors.recordText}
+								{formikProps.errors.recordText}
 							</Form.Control.Feedback>
 						</Form.Group>
 					</Row>
@@ -81,7 +81,7 @@ export const ToDoForm: React.FC<ToDoFormProps> = ({ task, onHide }) => {
 							name="completed"
 							label="Completed"
 							id="checkbox"
-							onChange={handleChange}
+							onChange={formikProps.handleChange}
 						/>
 					</Form.Group>
 					<Stack direction="horizontal" gap={3}>

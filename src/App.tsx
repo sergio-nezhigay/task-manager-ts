@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 
-import { ToDoNavbar } from 'components/ToDoNavbar';
-import { ToDo } from 'components/ToDo';
+import { ToDoNavbar } from 'components/to-do-navbar';
+import { ToDo } from 'components/to-do';
 
 export const App: React.FC = () => {
 	return (
