@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Row, Col, Button, Stack } from "react-bootstrap";
+import { Button, Container, Stack } from "react-bootstrap";
 
 import { TaskList } from "components/TaskList";
 import { TaskModal } from "components/TaskModal";
@@ -28,13 +28,9 @@ const App: React.FC = () => {
         <TaskNavbar openModal={openModal} />
       </header>
       <main className="mt-5">
-        <div className="text-center container">
-          <Stack direction="horizontal" gap={3}>
-            <Button
-              variant="primary"
-              className="my-2 my-lg-0"
-              onClick={() => openModal(null)}
-            >
+        <Container className="text-center">
+          <Stack direction="horizontal" gap={3} className="mb-5">
+            <Button variant="primary" onClick={() => openModal(null)}>
               Add Task
             </Button>
 
@@ -50,7 +46,7 @@ const App: React.FC = () => {
               task={selectedTask}
             />
           )}
-        </div>
+        </Container>
       </main>
     </>
   );

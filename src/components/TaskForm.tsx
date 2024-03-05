@@ -1,5 +1,7 @@
+import React from "react";
+
 import { useDispatch } from "react-redux";
-import { Button, Col, Row, Form, Modal } from "react-bootstrap";
+import { Button, Col, Row, Form, Stack } from "react-bootstrap";
 import { Formik, FormikHelpers } from "formik";
 import * as yup from "yup";
 import { v4 as uuidv4 } from "uuid";
@@ -59,39 +61,37 @@ const TaskForm = ({ task, onHide }: TaskFormProps) => {
     >
       {({ handleSubmit, handleChange, values, errors }) => (
         <Form noValidate onSubmit={handleSubmit}>
-          <Modal.Body>
-            <Row className="mb-3">
-              <Form.Group as={Col} md="8" controlId="validationFormik04">
-                <Form.Label>Enter task details</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="recordText"
-                  value={values.recordText}
-                  onChange={handleChange}
-                  isInvalid={!!errors.recordText}
-                />
-                <Form.Control.Feedback type="invalid">
-                  {errors.recordText}
-                </Form.Control.Feedback>
-              </Form.Group>
-            </Row>
-            <Form.Group className="mb-3">
-              <Form.Check
-                name="completed"
-                label="Completed"
-                id="checkbox"
+          <Row className="mb-3">
+            <Form.Group as={Col} md="8" controlId="validationFormik04">
+              <Form.Label>Enter task details</Form.Label>
+              <Form.Control
+                type="text"
+                name="recordText"
+                value={values.recordText}
                 onChange={handleChange}
+                isInvalid={!!errors.recordText}
               />
+              <Form.Control.Feedback type="invalid">
+                {errors.recordText}
+              </Form.Control.Feedback>
             </Form.Group>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="primary" type="submit">
+          </Row>
+          <Form.Group className="mb-3">
+            <Form.Check
+              name="completed"
+              label="Completed"
+              id="checkbox"
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Stack direction="horizontal" gap={3}>
+            <Button variant="primary" type="submit" className="ms-auto">
               Save ✔️
             </Button>
             <Button variant="secondary" onClick={onHide} type="button">
               Close ❌
             </Button>
-          </Modal.Footer>
+          </Stack>
         </Form>
       )}
     </Formik>

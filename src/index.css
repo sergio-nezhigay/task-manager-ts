@@ -17,8 +17,9 @@ code {
     max-width: 40%;
   }
 }
-.d-flex {
-  gap: 20px;
+
+.line-through label {
+  text-decoration: line-through;
 }
 
 input[type="checkbox"],

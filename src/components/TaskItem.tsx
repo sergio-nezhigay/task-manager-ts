@@ -36,7 +36,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
           onChange={handleToggleStatusClick}
           label={task.recordText}
           id={checkboxId}
-          className="cursor-pointer"
+          className={`${task.completed && "line-through"}`}
         />
 
         <div className="ms-auto">
