@@ -9,18 +9,18 @@
 ### Main Page
 
 - Watch a list of tasks.
-- For each task, you can see the title, description, and status (completed ✅ or not ❌).
+- For each task, you can see the description, and status (completed ✅ or not ❌).
 - Using an "Add ToDo" button you can create a new task.
 
 ### Modal Window for Creating/Editing a ToDo
 
-- Helps you to add new/edit tasks with a specified title, description, and status.
-- Uses field validation (the title cannot be be empty).
+- Helps you to add new/edit tasks with a specified description and status.
+- Uses field validation (the description cannot be be more than 15 characters).
 
 ### ToDo Functionality
 
 - Ability to mark tasks as completed (✅) or remove the mark (❌).
-- Ability to edit the title and description of a task.
+- Ability to edit the description of a task.
 - Ability to delete tasks.
 - ToDo filtering by status (completed ✅ / incomplete ❌).
 
@@ -44,5 +44,6 @@
 ## Contact Information
 
 - **Author:** [Serhii Nezhyhai](https://github.com/sergio-nezhigay) 📝
-- **Email:** [abc1971h@gmail.com](mailto:abc1971h@gmail.com) ✉️
+- **Email:** [nezhihai@gmail.com](mailto:nezhihai@gmail.com) ✉️
+- **Live site:** [🚀 Live site](https://sergio-nezhigay.github.io/task-manager-ts/)
 - **My portfolio:** [🌐 Website](https://serhii.vercel.app/)
