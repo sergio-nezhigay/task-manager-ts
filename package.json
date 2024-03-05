@@ -72,5 +72,10 @@
 		"*.ts": "eslint --cache --fix",
 		"*.tsx": "eslint --cache --fix",
 		"*.--write": "prettier --write"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "echo \"[Husky] pre-commit\""
+		}
 	}
 }
