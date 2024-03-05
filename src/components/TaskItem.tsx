@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { Form, Button, Stack } from 'react-bootstrap';
 
 import { deleteToDo, toggleToDoStatus } from 'store/tasksSlice';
 import { ToDoModal } from 'components/ToDoModal';
 import { TaskItemProps } from 'types';
+import { useAppDispatch } from 'store/hooks';
 
 export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	const handleEditClick = (): void => {
 		setIsModalOpen(true);
@@ -21,6 +21,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
 	const handleToggleStatusClick = (): void => {
 		dispatch(toggleToDoStatus(task.id));
 	};
+
 	const checkboxId = `check_${task.id}`;
 
 	return (

@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { ButtonGroup, Button, Badge } from 'react-bootstrap';
 
 import { statusFilters } from 'data/constants';
@@ -9,6 +7,7 @@ import {
 	selectStatusFilter,
 	selectUncompletedToDosQty,
 } from 'store/selectors';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { setStatusFilter } from 'store/filtersSlice';
 
 export const FilterButtons: React.FC = () => {

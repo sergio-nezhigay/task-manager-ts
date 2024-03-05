@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { useDispatch } from 'react-redux';
 import { Button, Col, Row, Form, Stack } from 'react-bootstrap';
 import { Formik, FormikHelpers } from 'formik';
 import * as yup from 'yup';
 import { v4 as uuidv4 } from 'uuid';
 
-import { TASK_MAX_LENGTH } from 'data/constants';
 import { addToDo, editToDo } from 'store/tasksSlice';
+import { useAppDispatch } from 'store/hooks';
 import { ToDoFormProps } from 'types';
+import { TASK_MAX_LENGTH } from 'data/constants';
 
 export const ToDoForm: React.FC<ToDoFormProps> = ({ task, onHide }) => {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const schema = yup.object().shape({
 		recordText: yup
 			.string()

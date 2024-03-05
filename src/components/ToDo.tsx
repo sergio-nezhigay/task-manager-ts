@@ -34,7 +34,6 @@ export const ToDo: React.FC = () => {
 			{isModalOpen && (
 				<ToDoModal show={isModalOpen} onHide={closeModal} task={selectedToDo} />
 			)}
-			;
 		</>
 	);
 };

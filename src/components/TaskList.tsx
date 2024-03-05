@@ -1,13 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
 import { TaskItem } from './TaskItem';
 
 import { selectVisibleToDos } from 'store/selectors';
+import { useAppSelector } from 'store/hooks';
 import { IToDo } from 'types';
 
 export const TaskList: React.FC = () => {
-	const tasks: IToDo[] = useSelector(selectVisibleToDos);
+	const tasks: IToDo[] = useAppSelector(selectVisibleToDos);
 
 	return (
 		<>
