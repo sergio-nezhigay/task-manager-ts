@@ -4,7 +4,7 @@
 
 ## Project Description
 
-🚀 A web application for managing a task list. Users can add, edit, delete, and mark tasks as completed (✅).
+🚀 A web application for managing a task list. Users can add, edit, delete, and mark tasks as completed (✅)
 
 ### Main Page
 
