@@ -1,6 +1,6 @@
-# 🚀 Task Manager App
+# 🚀 ToDo Manager App
 
-![Task Manager](/public/screenshot.jpg)
+![ToDo Manager](/public/screenshot.jpg)
 
 ## Project Description
 
@@ -10,19 +10,19 @@
 
 - Watch a list of tasks.
 - For each task, you can see the title, description, and status (completed ✅ or not ❌).
-- Using an "Add Task" button you can create a new task.
+- Using an "Add ToDo" button you can create a new task.
 
-### Modal Window for Creating/Editing a Task
+### Modal Window for Creating/Editing a ToDo
 
 - Helps you to add new/edit tasks with a specified title, description, and status.
 - Uses field validation (the title cannot be be empty).
 
-### Task Functionality
+### ToDo Functionality
 
 - Ability to mark tasks as completed (✅) or remove the mark (❌).
 - Ability to edit the title and description of a task.
 - Ability to delete tasks.
-- Task filtering by status (completed ✅ / incomplete ❌).
+- ToDo filtering by status (completed ✅ / incomplete ❌).
 
 ### Data Storage
 

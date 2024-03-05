@@ -1,5 +1,5 @@
 {
-	"name": "task-manager-ts",
+	"name": "ToDo-manager-ts",
 	"version": "0.1.0",
 	"private": true,
 	"homepage": "https://sergio-nezhigay.github.io/task-manager-ts",
@@ -12,6 +12,7 @@
 		"@types/node": "^16.18.58",
 		"@types/react": "^18.2.28",
 		"@types/react-dom": "^18.2.13",
+		"@types/react-redux": "^7.1.33",
 		"bootstrap": "^5.3.2",
 		"formik": "^2.4.5",
 		"react": "^18.2.0",
@@ -68,8 +69,8 @@
 		"prettier": "3.2.5"
 	},
 	"lint-staged": {
-		"**/*.{js,ts,tsx}": [
-			"yarn format"
+		"*.{js,jsx,ts,tsx,md,html}": [
+			"npm run format"
 		]
 	},
 	"husky": {
