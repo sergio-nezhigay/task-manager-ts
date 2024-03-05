@@ -7,7 +7,7 @@ const tasksSlice = createSlice({
 	name: 'tasks',
 	initialState: {
 		tasks: initialToDos,
-	} as ToDosState,
+	} satisfies ToDosState,
 	reducers: {
 		addToDo: (state, action: PayloadAction<IToDo>) => {
 			state.tasks.push(action.payload);

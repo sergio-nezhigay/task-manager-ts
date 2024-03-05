@@ -5,7 +5,7 @@ import { Formik, FormikHelpers } from 'formik';
 import * as yup from 'yup';
 import { v4 as uuidv4 } from 'uuid';
 
-import { addToDo, editToDo } from 'store/tasksSlice';
+import { addToDo, editToDo } from 'store/tasks-slice';
 import { useAppDispatch } from 'store/hooks';
 import { ToDoFormProps } from 'types';
 import { TASK_MAX_LENGTH } from 'data/constants';

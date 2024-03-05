@@ -8,7 +8,7 @@ import {
 	selectUncompletedToDosQty,
 } from 'store/selectors';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { setStatusFilter } from 'store/filtersSlice';
+import { setStatusFilter } from 'store/filters-slice';
 
 export const FilterButtons: React.FC = () => {
 	const dispatch = useAppDispatch();
