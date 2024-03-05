@@ -68,10 +68,9 @@
 		"prettier": "3.2.5"
 	},
 	"lint-staged": {
-		"*.js": "eslint --cache --fix",
-		"*.ts": "eslint --cache --fix",
-		"*.tsx": "eslint --cache --fix",
-		"*.--write": "prettier --write"
+		"**/*.{js,ts,tsx}": [
+			"yarn format"
+		]
 	},
 	"husky": {
 		"hooks": {
