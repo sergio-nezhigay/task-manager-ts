@@ -19,7 +19,7 @@ export const ToDo: React.FC = () => {
 	return (
 		<>
 			<Stack direction="horizontal" gap={3} className="mb-5">
-				<Button variant="primary" onClick={(): void => openModal()}>
+				<Button variant="primary" onClick={openModal}>
 					Add ToDo
 				</Button>
 

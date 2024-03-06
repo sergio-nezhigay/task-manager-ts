@@ -12,6 +12,7 @@ import { TASK_MAX_LENGTH } from 'data/constants';
 
 export const ToDoForm: React.FC<ToDoFormProps> = ({ task, onHide }) => {
 	const dispatch = useAppDispatch();
+
 	const schema = yup.object().shape({
 		recordText: yup
 			.string()
@@ -22,6 +23,7 @@ export const ToDoForm: React.FC<ToDoFormProps> = ({ task, onHide }) => {
 			),
 		completed: yup.bool(),
 	});
+
 	const handleFormSubmit = (
 		formValues: {
 			recordText: string;
